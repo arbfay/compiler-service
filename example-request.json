@@ -1,0 +1,51 @@
+{
+  "id": "top-performers-by-sector",
+  "created_at": 0,
+  "name": "Top 3 Stocks per Sector by 90-day Performance",
+  "status": "active",
+  "filter": {
+    "type": "composite",
+    "operator": "and",
+    "filters": [
+      {
+        "type": "simple",
+        "target": { "type": "metric", "metric": "active" },
+        "op": "eq",
+        "value": { "type": "constant", "value": 1 }
+      },
+      {
+        "type": "simple",
+        "target": { "type": "metric", "metric": "country" },
+        "op": "eq",
+        "value": { "type": "constant", "value": "United States" }
+      }
+    ]
+  },
+  "group_by": [
+    {
+      "dimension": "sector",
+      "expression": {
+        "type": "aggregate",
+        "target": { "type": "metric", "metric": "price" },
+        "aggregation": "diff_pct",
+        "time_range": { "type": "relative", "duration": 90, "unit": "day" },
+        "alias": "price_change_90d"
+      },
+      "limit": 3
+    }
+  ],
+  "sort_by": [
+    { "expression": { "type": "metric", "metric": "sector" }, "direction": "asc" },
+    {
+      "expression": {
+        "type": "aggregate",
+        "target": { "type": "metric", "metric": "price" },
+        "aggregation": "diff_pct",
+        "time_range": { "type": "relative", "duration": 90, "unit": "day" },
+        "alias": "price_change_90d"
+      },
+      "direction": "desc"
+    }
+  ],
+  "limit": 100
+}

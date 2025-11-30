@@ -1,0 +1,25 @@
+{
+  "name": "compiler-service",
+  "type": "module",
+  "scripts": {
+    "dev": "bun run --hot src/index.ts",
+    "test": "bun test",
+    "typecheck": "bunx tsc --noEmit",
+    "lint": "eslint",
+    "format": "prettier --write \"{src,tests}/**/*.{ts,tsx,js,json,md}\"",
+    "format:check": "prettier --check \"{src,tests}/**/*.{ts,tsx,js,json,md}\""
+  },
+  "dependencies": {
+    "hono": "^4.10.7",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "@typescript-eslint/eslint-plugin": "^8.48.0",
+    "@typescript-eslint/parser": "^8.48.0",
+    "eslint": "^9.39.1",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-prettier": "^5.2.1",
+    "prettier": "^3.3.3"
+  }
+}
