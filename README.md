@@ -2,15 +2,6 @@
 
 This service compiles user queries that were pre-formatted into optimized ClickHouse SQL queries and visual computation graphs. It is a stripped-down version of the compiler we used for our agentic data analysis platform, focused specifically on processing market data.
 
-## Features
-
-- ✅ Compiles compute graphs to ClickHouse SQL queries
-- ✅ Generates Mermaid diagrams of computation graphs
-- ✅ Graph optimization to reduce redundant operations
-- ✅ Parameter extraction for safe query execution
-- ✅ Support for complex filters, aggregations, and window functions
-- ✅ Type-safe with TypeScript
-
 ## Getting Started
 
 ### Docker (Recommended)
